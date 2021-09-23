@@ -14,10 +14,17 @@ import javax.swing.SwingConstants;
 
 
 
+
+
 public class Cal implements ActionListener{
 	
+	//operation
+	boolean isope=false;
+	//string values
+	String newvar,oldvar,ope,result;
+	//converted string values
+	float newvarf,oldvarf,resultf;
 	//frame of calculator
-	
 	JFrame calFrame;
 	//display
 	JLabel display;
@@ -172,40 +179,173 @@ public class Cal implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//action for buttons
 		if(e.getSource()==sevenbut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("7");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"7");
+			}
 		}else if(e.getSource()==eightbut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("8");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"8");
+			}
 			
 		}else if (e.getSource()==ninebut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("9");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"9");
+			}
 			
 		}else if (e.getSource()==sixbut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("6");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"6");
+			}
 			
 		}else if (e.getSource()==fivebut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("5");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"5");
+			}
 			
 		}else if (e.getSource()==fourbut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("4");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"4");
+			}
 			
 		}else if (e.getSource()==threebut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("3");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"3");
+			}
 			
 		}else if (e.getSource()==twobut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("2");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"2");
+			}
 			
 		}else if (e.getSource()==onebut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("1");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"1");
+			}
 			
 		}else if (e.getSource()==zerobut) {
+			if(isope) {
+				oldvar=display.getText();
+				display.setText("0");
+				isope=false;
+				
+			}else {
+			
 			display.setText(display.getText()+"0");
+			}
 			
 		}else if (e.getSource()==dotbut) {
-			display.setText(display.getText()+".");
+			if(isope) {
+				oldvar=display.getText();
+				display.setText(".");
+				isope=false;
+				
+			}else {
 			
-		}else if(e.getSource()==clearbut) {
-			display.setText("");
+			display.setText(display.getText()+".");
+			}
+			
+		}
+		else if (e.getSource()==clearbut) {
+			
+				display.setText("");
+		}
+		
+		
+		//operation functions
+		else if(e.getSource()==plusbut) {
+			isope=true;
+			ope="+";
+			
+		}else if(e.getSource()==minusbut) {
+			isope=true;
+			ope="-";
+			
+		}else if(e.getSource()==mulbut) {
+			isope=true;
+			ope="*";			
+			
+		}else if(e.getSource()==divbut) {
+			isope=true;
+			ope="/";
+			
+		
+			
+			//calculation
+		}else if(e.getSource()==equalbut) {
+			newvar=display.getText();
+			
+			newvarf=Float.parseFloat(newvar);
+			oldvarf=Float.parseFloat(oldvar);
+			if(ope=="+") {
+				resultf=newvarf+oldvarf;
+				
+			}else if(ope=="*") {
+				resultf=newvarf*oldvarf;
+			}else if(ope=="-") {
+				resultf=oldvarf-newvarf;
+			}else if(ope=="/") {
+				resultf=oldvarf/newvarf;
+			}
+			result=String.valueOf(resultf);
+			display.setText(result);
+			
 		}
 		
 		
